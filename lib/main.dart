@@ -31,9 +31,13 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: new AppBar(),
-      body: new Column(mainAxisSize: MainAxisSize.max,
+    return SingleChildScrollView(
+      child: new Scaffold(
+    resizeToAvoidBottomPadding: false,
+    appBar: new AppBar(),
+    body: SingleChildScrollView(
+          child: new Column(
+        mainAxisSize: MainAxisSize.max,
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -43,17 +47,24 @@ class MyHomePage extends StatelessWidget {
           new Text(
             'Line 2',
           ),
+          new TextField(),
           Expanded(
-
             child: Container(
               alignment: Alignment.bottomCenter,
-                          child: new Text(
-                'Should be at the bottom',
+              child: Column(mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+          new TextField(),
+                  new Text(
+                    'Should be at the bottom',
+                  ),
+                ],
               ),
             ),
           ),
         ],
       ),
-    );
+    ),
+        ),
+      );
   }
 }
